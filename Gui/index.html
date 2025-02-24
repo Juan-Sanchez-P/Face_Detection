@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Object Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Video Object Detection</h1>
+        <input type="file" id="videoUpload" accept="video/*">
+        <button onclick="uploadVideo()">Upload</button>
+        <video id="videoPreview" controls></video>
+        <p id="status"></p>
+        <h3>Detected Objects:</h3>
+        <ul id="objectList"></ul>
+    </div>
+    <script src="/eel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
