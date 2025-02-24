@@ -9,15 +9,16 @@ body {
     width: 50%;
     margin: auto;
     background: rgb(69, 69, 69);
-    padding: 100px;
+    padding: 60px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 80px;
+    border-radius: 60px;
     border-width: 3px;
     border-style: solid;
     border-color: #267fdd;
 }
 .container h1 {
     color: white;
+    font-size: 50px;
 }
 .container h3 {
     color: white;
