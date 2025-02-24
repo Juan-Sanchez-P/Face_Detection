@@ -1,19 +1,27 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #171717;
     margin: 20px;
 }
 
 .container {
     width: 50%;
     margin: auto;
-    background: white;
-    padding: 20px;
+    background: rgb(69, 69, 69);
+    padding: 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 80px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #267fdd;
 }
-
+.container h1 {
+    color: white;
+}
+.container h3 {
+    color: white;
+}
 button {
     padding: 10px;
     margin-top: 10px;

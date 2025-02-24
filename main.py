@@ -12,6 +12,7 @@ eel.init("Gui")
 model = YOLO("yolov8n.pt")
 
 @eel.expose
+
 def process_video(video_data):
     try:
         # Decode base64 video data
