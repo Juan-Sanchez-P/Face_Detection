@@ -12,10 +12,27 @@ function uploadVideo() {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function () {
-            eel.process_video(reader.result)(updateUI);
+            eel.process_video(reader.result, "all")(updateUI);
         };
     } else {
         alert("Please select a video.");
+    }
+}
+
+function detectObject(objectType) {
+    let fileInput = document.getElementById("videoUpload");
+    let file = fileInput.files[0];
+    
+    if (file) {
+        document.getElementById("status").innerText = "Detecting " + objectType + "...";
+        
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            eel.process_video(reader.result, objectType)(updateUI);
+        };
+    } else {
+        alert("Please upload a video first.");
     }
 }
 
@@ -25,9 +42,18 @@ function updateUI(result) {
     let objectList = document.getElementById("objectList");
     objectList.innerHTML = "";
     
+    if (result.length === 0) {
+        objectList.innerHTML = "<li>No objects detected.</li>";
+    }
+    
     result.forEach(item => {
         let li = document.createElement("li");
         li.innerText = `${item.label} - Confidence: ${item.confidence}%`;
         objectList.appendChild(li);
     });
 }
+
+document.getElementById("dogButton").onclick = function() { detectObject("dog"); };
+document.getElementById("catButton").onclick = function() { detectObject("cat"); };
+document.getElementById("carButton").onclick = function() { detectObject("car"); };
+document.getElementById("humanButton").onclick = function() { detectObject("human"); };
