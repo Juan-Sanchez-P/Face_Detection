@@ -19,6 +19,18 @@ function uploadVideo() {
     }
 }
 
+function removeVideo() {
+    let videoElement = document.getElementById("videoPreview");
+    let fileInput = document.getElementById("videoUpload");
+    let statusText = document.getElementById("status");
+    let objectList = document.getElementById("objectList");
+
+    videoElement.src = "";
+    fileInput.value = "";
+    statusText.innerText = "";
+    objectList.innerHTML = "";
+}
+
 function detectObject(objectType) {
     let fileInput = document.getElementById("videoUpload");
     let file = fileInput.files[0];
@@ -57,3 +69,5 @@ document.getElementById("dogButton").onclick = function() { detectObject("dog");
 document.getElementById("catButton").onclick = function() { detectObject("cat"); };
 document.getElementById("carButton").onclick = function() { detectObject("car"); };
 document.getElementById("humanButton").onclick = function() { detectObject("human"); };
+document.getElementById("bicycleButton").onclick = function() { detectObject("bicycle"); };
+document.getElementById("chairButton").onclick = function() { detectObject("chair"); };
