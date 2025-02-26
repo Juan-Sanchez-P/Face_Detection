@@ -121,3 +121,32 @@ footer {
         height: 200px;
     }
 }
+
+.image-preview img, .results img {
+    max-width: 100%; 
+    height: auto; 
+    max-height: 500px;
+    display: block; 
+    margin: 10px auto; 
+    border-radius: 10px; 
+}
+
+.processed-preview img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    max-height: 400px;
+}
+
+.face-detection-result {
+    font-family: Arial, sans-serif; 
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
