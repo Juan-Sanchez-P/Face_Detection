@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Detector</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/VOD_LOGO.jpg') }}">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
@@ -17,28 +16,39 @@
             <div class="upload-box">
                 <form id="upload-form" action="/detect" method="post" enctype="multipart/form-data">
                     <div class="image-preview">
-                        <img id="preview-image" src="./image/wacky.jpg" alt="Preview">
+                        {% if uploaded_image %}
+                            <img id="preview-image" src="{{ uploaded_image }}" alt="Uploaded Image">
+                        {% else %}
+                            <img id="preview-image" src="{{ url_for('static', filename='image/upload_2.jpg') }}" alt="Preview">
+                        {% endif %}
                     </div>
-                    
+            
                     <div class="upload-controls">
                         <input type="file" id="imageUpload" name="image" accept="image/*">
                         <button type="submit" class="submit-btn">Detect Faces</button>
                     </div>
                 </form>
+            
+                {% if processed_image %}
+                    <h3>Processed Image:</h3>
+                    <div class="processed-preview">
+                        <img src="{{ processed_image }}" alt="Detected Faces">
+                    </div>
+                {% endif %}
+            
+                {% if face_count is not none %}
+                    <p class="face-detection-result">
+                        Detected Faces: {{ face_count if face_count > 0 else "None" }}
+                    </p>
+                {% endif %}
             </div>
             
-            <div class="results" id="results">
-                <!-- {% if results %}
-                    <h2>Detection Results</h2>
-                    <div class="results-data">
-                        {{ results }}
-                    </div>
-                {% endif %} -->
-            </div>
+            
+            
         </main>
 
     </div>
     
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
