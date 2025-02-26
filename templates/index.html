@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detector</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/VOD_LOGO.jpg') }}">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Face Detector</h1>
+        </header>
+        
+        <main>
+            <div class="upload-box">
+                <form id="upload-form" action="/detect" method="post" enctype="multipart/form-data">
+                    <div class="image-preview">
+                        <img id="preview-image" src="./image/wacky.jpg" alt="Preview">
+                    </div>
+                    
+                    <div class="upload-controls">
+                        <input type="file" id="imageUpload" name="image" accept="image/*">
+                        <button type="submit" class="submit-btn">Detect Faces</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="results" id="results">
+                <!-- {% if results %}
+                    <h2>Detection Results</h2>
+                    <div class="results-data">
+                        {{ results }}
+                    </div>
+                {% endif %} -->
+            </div>
+        </main>
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
