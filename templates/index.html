@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Detector</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .detection-results {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .face-detection-result, .smile-detection-result {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        .face-detection-result {
+            background-color: #e8f5e9;
+            border: 1px solid #81c784;
+        }
+        
+        .smile-detection-result {
+            background-color: #e3f2fd;
+            border: 1px solid #64b5f6;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -37,16 +65,20 @@
                 {% endif %}
             
                 {% if face_count is not none %}
-                    <p class="face-detection-result">
-                        Detected Faces: {{ face_count if face_count > 0 else "None" }}
-                    </p>
+                    <div class="detection-results">
+                        <div class="face-detection-result">
+                            Detected Faces: {{ face_count if face_count > 0 else "None" }}
+                        </div>
+                        
+                        {% if smile_count is not none %}
+                            <div class="smile-detection-result">
+                                Detected Smiles: {{ smile_count if smile_count > 0 else "None" }}
+                            </div>
+                        {% endif %}
+                    </div>
                 {% endif %}
             </div>
-            
-            
-            
         </main>
-
     </div>
     
     <script src="{{ url_for('static', filename='script.js') }}"></script>
